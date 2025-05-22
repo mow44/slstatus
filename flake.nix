@@ -1,5 +1,5 @@
 {
-  description = "slstatus-1.0";
+  description = "slstatus";
 
   inputs.nixpkgs.url = "nixpkgs/nixpkgs-unstable";
 
@@ -10,7 +10,7 @@
         with import nixpkgs { system = "x86_64-linux"; };
         stdenv.mkDerivation {
           name = "slstatus";
-          version = "1.0"; # TODO 1.1
+          version = "1.0";
 
           src = self;
 
