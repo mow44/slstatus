@@ -5,9 +5,14 @@
 
   outputs =
     { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+      configFile = import ./config.nix { inherit pkgs; };
+    in
     {
-      defaultPackage.x86_64-linux =
-        with import nixpkgs { system = "x86_64-linux"; };
+      defaultPackage.${system} =
+        with pkgs;
         stdenv.mkDerivation {
           name = "slstatus";
           version = "1.0";
@@ -22,6 +27,10 @@
           ];
 
           installFlags = [ "PREFIX=$(out)" ];
+
+          prePatch = ''
+            cp ${configFile} config.def.h
+          '';
 
           meta = {
             mainProgram = "slstatus";
