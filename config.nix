@@ -1,5 +1,5 @@
 { pkgs }:
-pkgs.writeFile "config.def.h" ''
+pkgs.writeText "config.def.h" ''
   /* See LICENSE file for copyright and license details. */
 
   /* interval between updates (in ms) */
