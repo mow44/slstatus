@@ -66,10 +66,11 @@ pkgs.writeText "config.def.h" ''
    * wifi_perc           WiFi signal in percent          interface name (wlan0)
    */
   static const struct arg args[] = {
-  	/* function  format          argument */
-  	{ uptime,    "%s | ",           NULL    },
-  	{ disk_free, "%s | ",           "/"     },
-  	{ keymap,    "%s | ",           NULL    },
-  	{ datetime,  "%s",              "%F %T" },
+  	/* function             format             argument */
+  	{ uptime,              "%s | ",           NULL    },
+  	{ disk_free,           "%s | ",           "/"     },
+  	{ keymap,              "%s | ",           NULL    },
+  	{ keyboard_indicators, "%s | ",           "cn"    },
+  	{ datetime,            "%s",              "%F %T" },
   };
 ''
